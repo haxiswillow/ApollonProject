@@ -1,0 +1,10 @@
+#!/system/bin/sh
+
+echo "0,3,5,7,14,15" > /sys/module/lowmemorykiller/parameters/adj
+echo "1536,2048,6656,7168,7680,8192" > /sys/module/lowmemorykiller/parameters/minfree
+echo "0" > /proc/sys/kernel/panic
+echo "0" > /proc/sys/vm/oom_kill_allocating_task
+echo "0" > /proc/sys/vm/panic_on_oom
+echo "1" > /proc/sys/kernel/panic_on_oops
+echo "0" > /proc/sys/kernel/panic
+exit 0;

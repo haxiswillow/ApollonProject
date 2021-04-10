@@ -1,0 +1,11 @@
+#!/system/bin/sh
+
+if [ ! -f /data/crontab/root ]; then
+  mkdir /data/crontab
+  echo "0 4 * * 2 fstrim /cache" > /data/crontab/root
+  echo "0 5 * * 2 fstrim /data" >> /data/crontab/root
+echo "0 6 * * 2 fstrim /system" >> /data/crontab/root
+  chmod 775 /data/crontab/root
+fi
+# Start cron
+crond -b -c /data/crontab

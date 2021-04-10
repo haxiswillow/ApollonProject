@@ -1,0 +1,13 @@
+#!/system/bin/sh
+
+rm /data/local/*.apk
+rm /data/local/tmp/*.apk
+rm /data/*.log
+rm /data/log/*.log
+rm /cache/*
+rm /cache/recovery/*
+rm /data/system/dropbox/*.txt
+rm /data/backup/pending/*.tmp
+rm /data/tombstones/*
+rm /sdcard/LOST.DIR/*
+exit 0;

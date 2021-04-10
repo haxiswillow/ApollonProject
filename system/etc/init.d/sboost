@@ -1,0 +1,47 @@
+#!/system/bin/sh
+
+PATH=$PATH:/system/xbin:/sbin:/vendor/bin:/system/sbin:/system/bin
+if [ -d /data/local/busybox*/xbin ]; then PATH=$PATH:`ls -d /data/local/busybox*/xbin 2>/dev/null`; fi
+mount -o remount,rw /data 2>/dev/null;
+busybox mount -o remount,rw /data 2>/dev/null;
+
+Start(){
+	echo "";
+	echo "";
+	echo "";
+	echo "Executed at: `date | awk '{print $1,$2,$3,$4}'`";
+	echo "";
+};
+SD(){
+	echo "";
+	echo "";
+	if [ "`cat /sys/block/mmcblk0/bdi/read_ahead_kb`" -ne 2048 ] && [ "2048" != 0 ]; then
+
+		if [ "`ls /sys/devices/virtual/bdi/179*/read_ahead_kb`" ]; then
+				for i in /sys/devices/virtual/bdi/179*/read_ahead_kb; do echo 2048 > $i; done;
+				for i in /sys/devices/virtual/bdi/179*/read_ahead_kb; do echo ""$i "= 2048"; done;
+		fi 2>/dev/null;
+		echo 2048 > /sys/block/mmcblk0/bdi/read_ahead_kb 2>/dev/null;
+		echo ""/sys/block/mmcblk0/bdi/read_ahead_kb "= 2048";
+		echo 2048 > /sys/block/mmcblk0/queue/read_ahead_kb 2>/dev/null;
+		echo ""/sys/block/mmcblk0/queue/read_ahead_kb "= 2048";
+		fi;
+};
+RUN(){
+	while [ ! "`ps | grep -m 1 [a]ndroid`" ]; do sleep 10; done;
+	if [ "`echo $0 | grep "init\.d"`" ]; then
+		sleep 60;
+	fi;
+	SD;
+	echo "";
+	echo "$0 ";
+	echo "";
+};
+if [ ! "`ps | grep -m 1 [a]ndroid`" ]; then exec > /data/robkof/rkboostsd.log 2>&1; fi;
+Start;
+if [ "`ps | grep -m 1 [a]ndroid`" ]; then RUN;
+else RUN &
+fi;
+echo "" > /data/sboost/sbboostsd.log;
+
+exit 0;
