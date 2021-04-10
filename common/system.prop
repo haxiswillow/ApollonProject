@@ -1,0 +1,53 @@
+# Boot
+boot.fps=30
+shutdown.fps=30
+ro.config.hw_quickpoweron=true
+
+# Ram 1
+ro.config.fha_enable=true
+ro.sys.fw.bg_apps_limit=32
+ro.config.dha_cached_max=16
+ro.config.dha_empty_max=42
+ro.config.dha_empty_init=32
+ro.config.dha_lmk_scale=0.545
+ro.config.dha_th_rate=2.3
+ro.config.sdha_apps_bg_max=64
+ro.config.sdha_apps_bg_min=8
+fo_ui
+ro.config.low_ram=false
+
+# Fast Response
+debug.egl.hw=1
+video.accelerate.hw=1
+view.touch_slop=1
+view.scroll_friction=0
+ro.max.fling_velocity=20000
+ro.min.fling_velocity=8000
+
+# Domain Name System
+net.eth0.dns1=1.1.1.1
+net.eth0.dns2=1.0.0.1
+
+net.dns1=1.1.1.1
+net.dns2=1.0.0.1
+
+net.ppp0.dns1=1.1.1.1
+net.ppp0.dns2=1.0.0.1
+
+net.rmnet0.dns1=1.1.1.1
+net.rmnet0.dns2=1.0.0.1
+
+net.rmnet1.dns1=1.1.1.1
+net.rmnet1.dns2=1.0.0.1
+
+net.pdpbr1.dns1=1.1.1.1
+net.pdpbr1.dns2=1.0.0.1
+
+# Ram 2
+persist.sys.purgeable_assets=1
+ro.HOME_APP_ADJ=1
+ro.FOREGROUND_APP_ADJ=1
+ro.HOME_APP_MEM=1
+ro.FOREGROUND_APP_MEM=1
+ro.vendor.qti.sys.fw.bservice_enable=true
+ro.vendor.qti.sys.fw.bg_apps_limit=60
