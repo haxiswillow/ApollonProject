@@ -1,9 +1,7 @@
+# Apollon Project
+# Dev. Mainteiner : Haxis
 #!/system/bin/sh
 MODDIR=${0%/*}
-if [ -e /sys/kernel/fast_charge/force_fast_charge ]; then
-  echo "1" > /sys/kernel/fast_charge/force_fast_charge
-fi
-setprop ro.vendor.qti.config.zram true
 
 # Entropy
 echo "4096" > /proc/sys/kernel/random/read_wakeup_threshold
@@ -23,6 +21,7 @@ echo "13060" > /sys/class/touch/switch/set_touchscreen
 echo "14005" > /sys/class/touch/switch/set_touchscreen
 
 # Zram
+setprop ro.vendor.qti.config.zram true
 for zram0 in sys/block/zram0/
 do
 write "${zram0}reset" "1"
