@@ -1,3 +1,5 @@
+# Apollon Project
+# Dev. Mainteiner : Haxis
 #!/system/bin/sh
 MODDIR=${0%/*}
 
