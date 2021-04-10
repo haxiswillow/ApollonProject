@@ -21,25 +21,29 @@ sleep 0.4
   ui_print "               "
 sleep 0.4
   ui_print "______________________________________________"
-sleep 0.4
-ui_print "👨‍💻Checking Phone Information👨‍💻"
+  ui_print "👨‍💻Checking Phone Information👨‍💻"
 sleep 1
-ui_print " "
-ui_print "⚙️Processor : $(getprop ro.product.board)⚙️ "
+  ui_print " "
 sleep 1
-ui_print " "
-ui_print "💻Arm Version : $(getprop ro.product.cpu.abi)💻 "
+  ui_print "⚙️Processor : $(getprop ro.product.board)⚙️ "
 sleep 1
-ui_print " "
-ui_print "👾Android Brand : $(getprop ro.product.brand)👾 "
+  ui_print " "
 sleep 1
-ui_print " "
-ui_print "📱Device : $(getprop ro.build.product)📱 "
-ui_print " "
-sleep 1.3
+  ui_print "💻Arm Version : $(getprop ro.product.cpu.abi)💻 "
+sleep 1
+  ui_print " "
+sleep 1
+  ui_print "👾Android Brand : $(getprop ro.product.brand)👾 "
+sleep 1
+  ui_print " "
+sleep 1
+  ui_print "📱Device : $(getprop ro.build.product)📱 "
+sleep 1
+  ui_print " "
+sleep 1
   ui_print "⬇️Installing⬇️..."
   ui_print "______________________________________________"
-sleep 1.0
+sleep 1
   }
 
 on_install() {
